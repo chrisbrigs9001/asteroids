@@ -5,8 +5,15 @@ from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 def main():
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
     print(f"Screen width: {SCREEN_WIDTH}\nScreen height: {SCREEN_HEIGHT}")
+    #initialize pygame
     pygame.init()
+    #initialize game clock and time delta
+    game_clock=pygame.time.Clock()
+    dt = 0
+    
+    #set screen size
     screen=pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    
     go = True
     while go:
         log_state()
@@ -14,6 +21,12 @@ def main():
             if event.type==pygame.QUIT:
                 return
         screen.fill("black")
+        
+        dt = game_clock.tick(60)
+        dt = dt/1000
+        
+        #debug print, removed
+        #print (dt)
         pygame.display.flip()
 
 if __name__ == "__main__":
