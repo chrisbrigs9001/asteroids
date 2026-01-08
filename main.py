@@ -1,4 +1,4 @@
-import pygame
+import pygame, player, circleshape
 from logger import log_state
 from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 
@@ -10,6 +10,10 @@ def main():
     #initialize game clock and time delta
     game_clock=pygame.time.Clock()
     dt = 0
+    
+    #instantiate player
+    my_player = Player((SCREEN_WIDTH/2), (SCREEN_HEIGHT/2))
+    
     
     #set screen size
     screen=pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
