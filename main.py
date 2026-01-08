@@ -1,6 +1,7 @@
-import pygame, player, circleshape
+import pygame
 from logger import log_state
-from constants import SCREEN_HEIGHT, SCREEN_WIDTH
+from constants import SCREEN_HEIGHT, SCREEN_WIDTH, PLAYER_RADIUS
+from player import Player
 
 def main():
     print(f"Starting Asteroids with pygame version: {pygame.version.ver}")
@@ -24,8 +25,10 @@ def main():
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
                 return
+            
         screen.fill("black")
-        
+        my_player.update(dt)
+        my_player.draw(screen)
         dt = game_clock.tick(60)
         dt = dt/1000
         
